@@ -79,9 +79,6 @@ public class ServidorService {
         Servidor servidor= new Servidor();
         servidor.setId(servidorDto.getIdServidor());
 
-            if (servidorDto.getMatricula() != null ){
-            servidor.setMatricula(servidorDto.getMatricula());
-            }
             if (servidorDto.getNome() != null) {
                 servidor.setNome(servidorDto.getNome());
             }
