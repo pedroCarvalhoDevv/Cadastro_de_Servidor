@@ -79,10 +79,7 @@ public class LotacaoService {
 
     public void delete(Long id){
         findById(id);
-        if (!lotacaoRepository.existsById(id)){
-            throw new RuntimeException("A Lotação de id "+ id + " não existe.");
-        }
-        if (!servidorRepository.existsByLotacaoId(id)){
+        if (servidorRepository.existsByLotacaoId(id)){
             throw new RuntimeException("Existe servidor cadastrado com essa lotacao!");
         }
         lotacaoRepository.deleteById(id);

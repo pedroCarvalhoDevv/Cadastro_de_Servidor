@@ -88,7 +88,7 @@ public class ServidorService {
                 if (servidorLotacao != null && servidorLotacao.getId() != servidorDto1.getLotacao()){
                 servidor.setLotacao(new Lotacao(servidorDto1.getLotacao()));
             } else {
-                    throw new RuntimeException("Erro ao atualizar a lotacao");
+                    throw new RuntimeException("Não foi possivel atualizar servidor.");
                 }
         }
 
@@ -104,9 +104,6 @@ public class ServidorService {
 
     public void delete(Long id) {
         findById(id);
-        if (!servidorRepository.existsByLotacaoId(id)){
-            throw new RuntimeException("O servidor de id "+ id + " não existe.");
-        }
         servidorRepository.deleteById(id);
     }
 }
